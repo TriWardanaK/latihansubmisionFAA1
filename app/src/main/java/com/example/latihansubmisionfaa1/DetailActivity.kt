@@ -9,6 +9,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 @Suppress("DEPRECATION")
 class DetailActivity : AppCompatActivity() {
+
     companion object{
         const val EXTRA_NAME = "extra_name"
 

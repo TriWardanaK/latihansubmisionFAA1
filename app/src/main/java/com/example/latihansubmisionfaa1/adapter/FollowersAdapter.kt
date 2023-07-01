@@ -7,8 +7,13 @@ import com.bumptech.glide.Glide
 import com.example.latihansubmisionfaa1.databinding.ItemFollowersBinding
 import com.example.latihansubmisionfaa1.response.FollowersGithubResponse
 
-class FollowersAdapter(private val listFollowers: ArrayList<FollowersGithubResponse>) :
-    RecyclerView.Adapter<FollowersAdapter.ViewHolder>() {
+class FollowersAdapter : RecyclerView.Adapter<FollowersAdapter.ViewHolder>() {
+
+    private var listFollowers: ArrayList<FollowersGithubResponse>? = null
+
+    fun setListFollowers(listFollowers: ArrayList<FollowersGithubResponse>?) {
+        this.listFollowers = listFollowers
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
@@ -17,11 +22,12 @@ class FollowersAdapter(private val listFollowers: ArrayList<FollowersGithubRespo
     }
 
     override fun getItemCount(): Int {
-        return listFollowers.size
+        return if (listFollowers == null) 0
+        else listFollowers?.size!!
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(listFollowers[position])
+        holder.bind(listFollowers!![position])
     }
 
     inner class ViewHolder(private var binding: ItemFollowersBinding) :

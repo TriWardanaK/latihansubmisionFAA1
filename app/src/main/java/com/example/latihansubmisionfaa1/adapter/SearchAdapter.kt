@@ -7,8 +7,13 @@ import com.bumptech.glide.Glide
 import com.example.latihansubmisionfaa1.databinding.ItemSearchBinding
 import com.example.latihansubmisionfaa1.response.SearchUserGithubResponse
 
-class SearchAdapter(private val listSearch: ArrayList<SearchUserGithubResponse.SearchUserResponse>)
-    : RecyclerView.Adapter<SearchAdapter.ViewHolder>(){
+class SearchAdapter: RecyclerView.Adapter<SearchAdapter.ViewHolder>(){
+
+    private var listSearch: ArrayList<SearchUserGithubResponse.SearchUserResponse>? = null
+
+    fun setListSearch(listSearch: ArrayList<SearchUserGithubResponse.SearchUserResponse>?){
+        this.listSearch = listSearch
+    }
 
     private var onItemClickCallback: OnItemClickCallback? = null
 
@@ -22,11 +27,12 @@ class SearchAdapter(private val listSearch: ArrayList<SearchUserGithubResponse.S
     }
 
     override fun getItemCount(): Int {
-        return listSearch.size
+        return if (listSearch == null) 0
+        else listSearch?.size!!
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(listSearch[position])
+        holder.bind(listSearch!![position])
     }
 
     inner class ViewHolder(private var binding: ItemSearchBinding): RecyclerView.ViewHolder(binding.root) {
