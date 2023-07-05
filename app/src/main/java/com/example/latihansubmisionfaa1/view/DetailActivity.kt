@@ -8,12 +8,9 @@ import com.example.latihansubmisionfaa1.databinding.ActivityDetailBinding
 import com.example.latihansubmisionfaa1.view.adapter.SectionsPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
-@Suppress("DEPRECATION")
 class DetailActivity : AppCompatActivity() {
 
-    companion object{
-        const val EXTRA_NAME = "extra_name"
-
+    companion object {
         @StringRes
         private val TAB_TITLES = intArrayOf(
             R.string.tab_text_1,
@@ -34,5 +31,10 @@ class DetailActivity : AppCompatActivity() {
             tab.text = resources.getString(TAB_TITLES[position])
         }.attach()
         supportActionBar?.elevation = 0f
+
+    }
+
+    fun getUser(): String? {
+        return intent.getStringExtra("user")
     }
 }

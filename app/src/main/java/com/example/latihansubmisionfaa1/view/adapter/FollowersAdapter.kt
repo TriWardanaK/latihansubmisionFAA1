@@ -1,5 +1,6 @@
 package com.example.latihansubmisionfaa1.view.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,10 +10,12 @@ import com.example.latihansubmisionfaa1.model.remote.response.FollowersGithubRes
 
 class FollowersAdapter : RecyclerView.Adapter<FollowersAdapter.ViewHolder>() {
 
-    private var listFollowers: ArrayList<FollowersGithubResponse>? = null
+    private var listFollowers = ArrayList<FollowersGithubResponse>()
 
-    fun setListFollowers(listFollowers: ArrayList<FollowersGithubResponse>?) {
+    @SuppressLint("NotifyDataSetChanged")
+    fun setListFollowers(listFollowers: ArrayList<FollowersGithubResponse>) {
         this.listFollowers = listFollowers
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,12 +25,12 @@ class FollowersAdapter : RecyclerView.Adapter<FollowersAdapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return if (listFollowers == null) 0
-        else listFollowers?.size!!
+        return listFollowers.size
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(listFollowers!![position])
+        holder.bind(listFollowers[position])
     }
 
     inner class ViewHolder(private var binding: ItemFollowersBinding) :

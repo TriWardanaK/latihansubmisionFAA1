@@ -1,15 +1,14 @@
 package com.example.latihansubmisionfaa1.view.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.latihansubmisionfaa1.databinding.ItemSearchBinding
-import com.example.latihansubmisionfaa1.model.remote.response.SearchUserGithubResponse
 import com.example.latihansubmisionfaa1.model.remote.response.SearchUserResponse
+import com.example.latihansubmisionfaa1.view.DetailActivity
 
 class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
@@ -20,29 +19,6 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
         this.listSearch = listSearch
         notifyDataSetChanged()
     }
-
-//    private var listSearch: ArrayList<SearchUserResponse>? = null
-//
-//    @SuppressLint("NotifyDataSetChanged")
-//    fun setListSearch(listSearch: ArrayList<SearchUserResponse>) {
-//        this.listSearch = listSearch
-//        notifyDataSetChanged()
-//    }
-
-//    private var onItemClickCallback: OnItemClickCallback? = null
-//
-//    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
-//        this.onItemClickCallback = onItemClickCallback
-//    }
-
-//    private val differCallback = object: DiffUtil.ItemCallback<SearchUserResponse>() {
-//        override fun areItemsTheSame(oldItem: SearchUserResponse, newItem: SearchUserResponse):
-//                Boolean = oldItem == newItem
-//        override fun areContentsTheSame(oldItem: SearchUserResponse, newItem: SearchUserResponse):
-//                Boolean = oldItem == newItem
-//    }
-//
-//    val differ = AsyncListDiffer(this, differCallback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemSearchBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -66,14 +42,17 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
                 .into(binding.ivUserGithub)
 
             binding.tvUsername.text = searchUserResponse.user
-
-//            itemView.setOnClickListener{
-//                onItemClickCallback?.onItemClicked(searchUserResponse)
-//            }
+        }
+        init {
+            itemView.setOnClickListener{
+                val position = absoluteAdapterPosition
+                if(position != RecyclerView.NO_POSITION) {
+                    val user = listSearch[position].user
+                    val intent = Intent(it.context, DetailActivity::class.java)
+                    intent.putExtra("user", user)
+                    itemView.context.startActivity(intent)
+                }
+            }
         }
     }
-
-//    interface OnItemClickCallback{
-//        fun onItemClicked(data: SearchUserGithubResponse.SearchUserResponse)
-//    }
 }
