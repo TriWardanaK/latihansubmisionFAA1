@@ -1,11 +1,11 @@
-package com.example.latihansubmisionfaa1.adapter
+package com.example.latihansubmisionfaa1.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.latihansubmisionfaa1.databinding.ItemFollowersBinding
-import com.example.latihansubmisionfaa1.response.FollowersGithubResponse
+import com.example.latihansubmisionfaa1.model.remote.response.FollowersGithubResponse
 
 class FollowersAdapter : RecyclerView.Adapter<FollowersAdapter.ViewHolder>() {
 

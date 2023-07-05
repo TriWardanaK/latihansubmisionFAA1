@@ -1,9 +1,9 @@
-package com.example.latihansubmisionfaa1.adapter
+package com.example.latihansubmisionfaa1.view.adapter
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.latihansubmisionfaa1.FollowersFragment
+import com.example.latihansubmisionfaa1.view.FollowersFragment
 import com.example.latihansubmisionfaa1.FollowingFragment
 
 class SectionsPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {

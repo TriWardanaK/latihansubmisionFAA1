@@ -1,4 +1,4 @@
-package com.example.latihansubmisionfaa1
+package com.example.latihansubmisionfaa1.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.latihansubmisionfaa1.adapter.FollowersAdapter
 import com.example.latihansubmisionfaa1.databinding.FragmentFollowersBinding
-import com.example.latihansubmisionfaa1.response.SearchUserGithubResponse
+import com.example.latihansubmisionfaa1.model.remote.response.SearchUserGithubResponse
+import com.example.latihansubmisionfaa1.view.adapter.FollowersAdapter
+import com.example.latihansubmisionfaa1.viewmodel.FollowersFragmentViewModel
 
 @Suppress("DEPRECATION")
 class FollowersFragment : Fragment() {
@@ -44,7 +45,7 @@ class FollowersFragment : Fragment() {
             recyclerAdapter.setListFollowers(it)
             recyclerAdapter.notifyDataSetChanged()
         }
-        viewModel.showFollowers(this)
+//        viewModel.showFollowers(this)
         viewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
         }
@@ -67,11 +68,11 @@ class FollowersFragment : Fragment() {
         binding.pbSearch.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    fun getUsername(): String? {
-        val username =
-            activity?.intent?.getParcelableExtra(EXTRA_NAME) as SearchUserGithubResponse.SearchUserResponse?
-        return username?.user
-    }
+//    fun getUsername(): String? {
+//        val username =
+//            activity?.intent?.getParcelableExtra(EXTRA_NAME) as SearchUserGithubResponse.SearchUserResponse?
+//        return username?.user
+//    }
 
 //    private fun showFollowers() {
 //        binding.rvFollowers.layoutManager = LinearLayoutManager(context)

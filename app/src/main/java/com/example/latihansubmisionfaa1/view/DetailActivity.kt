@@ -1,10 +1,11 @@
-package com.example.latihansubmisionfaa1
+package com.example.latihansubmisionfaa1.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.annotation.StringRes
-import com.example.latihansubmisionfaa1.adapter.SectionsPagerAdapter
+import androidx.appcompat.app.AppCompatActivity
+import com.example.latihansubmisionfaa1.R
 import com.example.latihansubmisionfaa1.databinding.ActivityDetailBinding
+import com.example.latihansubmisionfaa1.view.adapter.SectionsPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 @Suppress("DEPRECATION")

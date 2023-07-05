@@ -1,6 +1,7 @@
-package com.example.latihansubmisionfaa1.api
+package com.example.latihansubmisionfaa1.model.remote.network
 
 import com.example.latihansubmisionfaa1.BuildConfig
+import com.example.latihansubmisionfaa1.model.remote.Api
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
