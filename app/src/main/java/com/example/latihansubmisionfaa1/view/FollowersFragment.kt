@@ -5,16 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.latihansubmisionfaa1.databinding.FragmentFollowersBinding
 import com.example.latihansubmisionfaa1.util.RequestState
 import com.example.latihansubmisionfaa1.view.adapter.FollowersAdapter
 import com.example.latihansubmisionfaa1.viewmodel.FollowersFragmentViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FollowersFragment : Fragment() {
 
-    private lateinit var viewModel: FollowersFragmentViewModel
+    private val viewModel: FollowersFragmentViewModel by viewModels()
+
     private lateinit var binding: FragmentFollowersBinding
     private lateinit var recyclerAdapter: FollowersAdapter
 
@@ -28,8 +31,6 @@ class FollowersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        viewModel = ViewModelProvider(this)[FollowersFragmentViewModel::class.java]
 
         val activity = requireActivity() as DetailActivity
         val user = activity.getUser()

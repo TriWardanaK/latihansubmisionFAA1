@@ -4,14 +4,16 @@ import androidx.lifecycle.*
 import com.example.latihansubmisionfaa1.model.remote.response.FollowersGithubResponse
 import com.example.latihansubmisionfaa1.repository.GithubRepository
 import com.example.latihansubmisionfaa1.util.RequestState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Response
+import javax.inject.Inject
 
-class FollowersFragmentViewModel : ViewModel() {
+@HiltViewModel
+class FollowersFragmentViewModel @Inject constructor (private val repository: GithubRepository) : ViewModel() {
 
-    private val githubRepository = GithubRepository()
     private var followersGithubResponse: ArrayList<FollowersGithubResponse>? = null
 
     private var _followersResponse =
@@ -22,7 +24,7 @@ class FollowersFragmentViewModel : ViewModel() {
     fun getFollowersUser(user: String) {
         viewModelScope.launch {
             _followersResponse.postValue(RequestState.Loading)
-            val response = githubRepository.followersUser(user)
+            val response = repository.followersUser(user)
             _followersResponse.postValue(handleFollowersUserResponse(response))
         }
     }

@@ -3,28 +3,29 @@ package com.example.latihansubmisionfaa1.view
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.latihansubmisionfaa1.R
 import com.example.latihansubmisionfaa1.databinding.ActivitySearchBinding
 import com.example.latihansubmisionfaa1.util.RequestState
 import com.example.latihansubmisionfaa1.view.adapter.SearchAdapter
 import com.example.latihansubmisionfaa1.viewmodel.SearchViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchActivity : AppCompatActivity() {
 
+    private val viewModel: SearchViewModel by viewModels()
+
     private var binding: ActivitySearchBinding? = null
-    private lateinit var viewModel: SearchViewModel
     private lateinit var recyclerAdapter: SearchAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-
-        viewModel = ViewModelProvider(this)[SearchViewModel::class.java]
 
         dataEmpty()
     }

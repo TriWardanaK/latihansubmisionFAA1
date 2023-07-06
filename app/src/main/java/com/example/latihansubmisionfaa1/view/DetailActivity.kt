@@ -7,7 +7,9 @@ import com.example.latihansubmisionfaa1.R
 import com.example.latihansubmisionfaa1.databinding.ActivityDetailBinding
 import com.example.latihansubmisionfaa1.view.adapter.SectionsPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
 
     companion object {

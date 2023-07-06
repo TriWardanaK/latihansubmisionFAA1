@@ -7,13 +7,16 @@ import androidx.lifecycle.viewModelScope
 import com.example.latihansubmisionfaa1.model.remote.response.SearchUserGithubResponse
 import com.example.latihansubmisionfaa1.repository.GithubRepository
 import com.example.latihansubmisionfaa1.util.RequestState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Response
+import javax.inject.Inject
 
-class SearchViewModel : ViewModel() {
-    private val searchRepository = GithubRepository()
+@HiltViewModel
+class SearchViewModel @Inject constructor (private val repository: GithubRepository) : ViewModel() {
+
     private var searchUserGithubResponse: SearchUserGithubResponse? = null
 
     private var _searchResponse = MutableLiveData<RequestState<SearchUserGithubResponse?>>()
@@ -22,7 +25,7 @@ class SearchViewModel : ViewModel() {
     fun searchUser(query: String) {
         viewModelScope.launch {
             _searchResponse.postValue(RequestState.Loading)
-            val response = searchRepository.searchUser(query)
+            val response = repository.searchUser(query)
             _searchResponse.postValue(handleSearchUserResponse(response))
         }
     }
