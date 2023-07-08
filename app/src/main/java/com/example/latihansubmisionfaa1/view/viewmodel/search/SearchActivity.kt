@@ -1,4 +1,4 @@
-package com.example.latihansubmisionfaa1.view
+package com.example.latihansubmisionfaa1.view.viewmodel.search
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,7 +11,6 @@ import com.example.latihansubmisionfaa1.R
 import com.example.latihansubmisionfaa1.databinding.ActivitySearchBinding
 import com.example.latihansubmisionfaa1.util.RequestState
 import com.example.latihansubmisionfaa1.view.adapter.SearchAdapter
-import com.example.latihansubmisionfaa1.viewmodel.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

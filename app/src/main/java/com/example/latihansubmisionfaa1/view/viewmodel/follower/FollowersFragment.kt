@@ -1,4 +1,4 @@
-package com.example.latihansubmisionfaa1.view
+package com.example.latihansubmisionfaa1.view.viewmodel.follower
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.latihansubmisionfaa1.databinding.FragmentFollowersBinding
 import com.example.latihansubmisionfaa1.util.RequestState
 import com.example.latihansubmisionfaa1.view.adapter.FollowersAdapter
-import com.example.latihansubmisionfaa1.viewmodel.FollowersFragmentViewModel
+import com.example.latihansubmisionfaa1.view.viewmodel.detail.DetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.latihansubmisionfaa1.databinding.ItemSearchBinding
 import com.example.latihansubmisionfaa1.model.remote.response.SearchUserResponse
-import com.example.latihansubmisionfaa1.view.DetailActivity
+import com.example.latihansubmisionfaa1.view.viewmodel.detail.DetailActivity
 
 class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
@@ -48,8 +48,10 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
                 val position = absoluteAdapterPosition
                 if(position != RecyclerView.NO_POSITION) {
                     val user = listSearch[position].user
+                    val avatar = listSearch[position].avatar
                     val intent = Intent(it.context, DetailActivity::class.java)
                     intent.putExtra("user", user)
+                    intent.putExtra("avatar", avatar)
                     itemView.context.startActivity(intent)
                 }
             }

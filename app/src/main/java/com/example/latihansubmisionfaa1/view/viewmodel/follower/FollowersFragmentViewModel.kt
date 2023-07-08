@@ -1,6 +1,9 @@
-package com.example.latihansubmisionfaa1.viewmodel
+package com.example.latihansubmisionfaa1.view.viewmodel.follower
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.latihansubmisionfaa1.model.remote.response.FollowersGithubResponse
 import com.example.latihansubmisionfaa1.repository.GithubRepository
 import com.example.latihansubmisionfaa1.util.RequestState
@@ -28,7 +31,6 @@ class FollowersFragmentViewModel @Inject constructor (private val repository: Gi
             _followersResponse.postValue(handleFollowersUserResponse(response))
         }
     }
-
 
     private fun handleFollowersUserResponse(response: Response<ArrayList<FollowersGithubResponse>>):
             RequestState<ArrayList<FollowersGithubResponse>?> {

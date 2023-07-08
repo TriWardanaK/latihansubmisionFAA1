@@ -1,4 +1,4 @@
-package com.example.latihansubmisionfaa1.viewmodel
+package com.example.latihansubmisionfaa1.view.viewmodel.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
