@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class FavoritesFragment : Fragment() {
 
-    private val viewModel: FavoriteFragmentViewModel by viewModels()
+    private val viewModel: FavoritesFragmentViewModel by viewModels()
 
     private lateinit var binding: FragmentFavoritesBinding
     private lateinit var recyclerAdapter: FavoriteAdapter

@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class FavoriteFragmentViewModel @Inject constructor(repository: FavoriteRepository) : ViewModel() {
+class FavoritesFragmentViewModel @Inject constructor(repository: FavoriteRepository) : ViewModel() {
 
     val getAllFavorites: LiveData<List<Favorite>> = repository.getAllFavorites
 }
