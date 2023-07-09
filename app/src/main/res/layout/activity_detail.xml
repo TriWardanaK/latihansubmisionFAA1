@@ -11,6 +11,10 @@
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        app:tabIndicatorHeight="2dp"
+        app:tabIndicatorColor="?attr/colorAccent"
         android:background="?attr/colorPrimary"
         app:tabTextColor="@android:color/white"/>
 

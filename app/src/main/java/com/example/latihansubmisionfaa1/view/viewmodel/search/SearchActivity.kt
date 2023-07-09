@@ -36,15 +36,15 @@ class SearchActivity : AppCompatActivity() {
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String): Boolean {
-                newText.let {
+                query.let {
                     viewModel.searchUser(it)
                     observeAnyChangeSearchMovie()
                     initRecyclerview()
                 }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
                 return false
             }
         })
@@ -57,9 +57,14 @@ class SearchActivity : AppCompatActivity() {
                 when (it) {
                     is RequestState.Loading -> showLoading()
                     is RequestState.Success -> {
-                        hideLoading()
-                        notEmpty()
-                        it.data?.results?.let { data -> recyclerAdapter.setListSearch(data) }
+                        if (it.data?.results?.size == 0) {
+                            hideLoading()
+                            dataEmpty()
+                        } else {
+                            hideLoading()
+                            notEmpty()
+                            it.data?.results?.let { data -> recyclerAdapter.setListSearch(data) }
+                        }
                     }
                     is RequestState.Error -> {
                         hideLoading()
